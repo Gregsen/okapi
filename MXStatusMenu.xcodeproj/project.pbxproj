@@ -31,7 +31,7 @@
 		50943182196EFB0C00A81FA8 /* Int32.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Int32.swift; sourceTree = "<group>"; };
 		50943184196EFB1F00A81FA8 /* UInt32.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UInt32.swift; sourceTree = "<group>"; };
 		50943186196EFB3100A81FA8 /* UInt64.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UInt64.swift; sourceTree = "<group>"; };
-		50943189196EFC0F00A81FA8 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		50943189196EFC0F00A81FA8 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = MXStatusMenu/main.swift; sourceTree = "<group>"; };
 		5094318B196EFC7A00A81FA8 /* StatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		5094318D196F001100A81FA8 /* StatusController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -50,6 +50,7 @@
 		50943121196D60CB00A81FA8 = {
 			isa = PBXGroup;
 			children = (
+				50943189196EFC0F00A81FA8 /* main.swift */,
 				5094312C196D60CB00A81FA8 /* MXStatusMenu */,
 				50943188196EFB5800A81FA8 /* Extensions */,
 				5094312B196D60CB00A81FA8 /* Products */,
@@ -74,7 +75,6 @@
 				5094318B196EFC7A00A81FA8 /* StatusView.swift */,
 				50943180196EFAA400A81FA8 /* Timer.swift */,
 				50943135196D60CB00A81FA8 /* MainMenu.xib */,
-				50943189196EFC0F00A81FA8 /* main.swift */,
 				5094312E196D60CB00A81FA8 /* Info.plist */,
 			);
 			path = MXStatusMenu;

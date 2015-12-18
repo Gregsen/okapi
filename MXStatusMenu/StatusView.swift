@@ -66,24 +66,28 @@ class StatusView: NSView {
         if pointsY.count == 0{
             path.moveToPoint(NSPoint(x:0, y:0))
         } else {
-            path.moveToPoint(NSPoint(x:Double(0), y:pointsY[0]))
+            path.moveToPoint(NSPoint(x:0, y:pointsY[0]))
         }
 
-        // Fill points should hold 10 values. Fill the list with each call until there are 10 values.
+        // Fill points should hold 50 values. Fill the list with each call until there are 50 values.
         // For every subsequent call to this method, remove first item, add new one to the end.
+        // the size (count) directly influences the width in the menuBar
         if pointsY.count < 51{
-            pointsY.append(Double(arc4random_uniform(20))) // you know, a cast cast cast
+            pointsY.append(percentage * 10)
         } else if pointsY.count >= 50 {
-            pointsY.removeAtIndex(0)
-            pointsY.append(Double(arc4random_uniform(20)))
+            pointsY.removeAtIndex(1)
+            pointsY.append(percentage * 10)
         }
+        NSLog("percentage in draw function: \(percentage)")
         
         // Draw the line (love isn't always on time)
         for i:Int in 0...pointsY.count {
             path.lineToPoint(NSPoint(x:Double(i), y:pointsY[i]))
         }
+        path.lineToPoint(NSPoint(x:pointsY.count, y:0))
         path.flatness = 0.01
         path.lineWidth = 1.0
+        path.fill()
         path.stroke()
         path.closePath()
       
@@ -93,6 +97,7 @@ class StatusView: NSView {
 	override func drawRect(dirtyRect: NSRect) {
 		super.drawRect(dirtyRect)
 		var frame = NSMakeRect(LeftMargin, 3.5, BarWidth, 20)
+        var loadAverage: Double = 0
         
 //        drawChartInFrame(longFrame, fillColor: networkOutputColor, percentage: 0.5)
 		frame.origin.x += ((BarWidth + GapBetweenBars)*2)
@@ -102,13 +107,18 @@ class StatusView: NSView {
 		frame.origin.x += (BarWidth + GapBetweenBars)
 		drawBarInFrame(frame, fillColor: networkOutputColor, percentage: statusController.networkLoad.output)
 		frame.origin.x += (BarWidth + GapBetweenBars)
-		
+
 		// draw the cpu bars
 		for load in statusController.cpuLoad {
 			drawBarInFrame(frame, fillColor: cpuColor, percentage: load)
-            drawChartInFrame(0.5)
-
+            loadAverage += load
 			frame.origin.x += (BarWidth + GapBetweenBars)
+            NSLog("load: \(load)")
+            NSLog("loadAverage in load loop: \(loadAverage)")
         }
+            NSLog("fin")
+        loadAverage = loadAverage / Double(statusController.cpuLoad.count)
+        drawChartInFrame(loadAverage*10)
+
 	}
 }

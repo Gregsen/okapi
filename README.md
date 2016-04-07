@@ -21,7 +21,7 @@ Tested on OS X 10.10.3 (14D131). Compiles without errors or warnings using Xcode
 
 # Disclaimer
 
-This is a simple app to test the capabilities of Swift and not intended to be used in production environments. If you are looking for a real app that monitors your Mac, i highly recommend [iStatMenus](http://bjango.com/mac/istatmenus/).
+This just is a simple app to test the capabilities of Swift and not intended to be used in production environments. If you are looking for a real app that monitors your Mac, i highly recommend [iStatMenus](http://bjango.com/mac/istatmenus/).
 
 Please notice that i'm not affiliated in any way with [Bjango](http://bjango.com), the developer of [iStatMenus](http://bjango.com/mac/istatmenus/).
 
